@@ -7,6 +7,9 @@
    heroku_deploy:
      jobs:
        - heroku/deploy-via-git:
+           pre-steps:
+             - run: node --version
+             - run: npm install -g @angular/cli
            filters:
              branches:
                only: master # only run deploy-via-git job on main branch
