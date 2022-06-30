@@ -1,0 +1,49 @@
+<div *ngIf="false">
+    <p [ngStyle]="{'color': color }">Change my Color</p>
+    <input [(ngModel)]="color" />
+
+    <br>
+
+    <p [ngClass]="isBig ? 'size-20' : 'size-10'">{{ isBig }}</p>
+    <button (mouseenter)="switchSize()">{{ isBig ? 'Display Small' : 'Display Big' }}</button>
+
+    <br>
+
+    <p *ngIf="isDisplayed">I'm Displayed</p>
+    <button (click)="switchDisplay()">{{ isDisplayed ? 'Hide me' : 'Show me' }}</button>
+
+    <br>
+
+    <input [(ngModel)]="message" />
+    <p class="hello-world">{{ message }}</p>
+
+    <br>
+
+    <input [(ngModel)]="alertMessage" />
+    <button (click)="displayAlert(alertMessage)">Display Alert</button>
+</div>
+
+<p>Name:</p>
+<input [(ngModel)]="name" />
+
+<p>Title:</p>
+<input [(ngModel)]="title" />
+
+<p>Gender:</p>
+<input [(ngModel)]="gender" />
+
+<p>Tenure:</p>
+<input [(ngModel)]="tenure" />
+
+<p>Salary:</p>
+<input [(ngModel)]="salary" />
+
+<br>
+
+<button (click)="addEmployee(name, title, gender, tenure, salary)">Add Employee</button>
+
+<div *ngFor="let employee of employees; let i = index;">
+    <app-employee [employee]="employee"></app-employee>
+    <button (click)="updateEmployee(i, name, title, gender, tenure, salary)">Update Employee</button>
+    <button (click)="deleteEmployee(i)">Delete Employee</button>
+</div>
